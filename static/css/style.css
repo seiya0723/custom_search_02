@@ -1,0 +1,123 @@
+html {
+  font-size: 18px;
+}
+@media (max-width:  768px)  {
+  html {
+    font-size: 15px;
+  }
+}
+h2 {
+    font-size:1.4rem;
+    font-weight:bold;
+    padding:0.2rem;
+    background:forestgreen;
+    color:white;
+}
+h3 {
+    font-size:1.2rem;
+    border-left:double 0.5rem forestgreen;
+    border-bottom:solid 0.25rem forestgreen;
+    padding:0.2rem;
+}
+
+
+.title {
+    position:relative;
+    background:forestgreen;
+    color:white;
+    text-align:center;
+}
+.title a {
+    text-decoration:none;
+    color:inherit;
+}
+.title a:hover {
+    text-decoration:none;
+    color:inherit;
+}
+.config_link {
+    position:absolute;
+    top:50%;
+    right:0.5rem;
+    transform:translateY(-50%);
+    width:3rem;
+    height:3rem;
+}
+.config_link i {
+    font-size:2rem;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+}
+.config_link:hover i{
+    color:orange;
+}
+
+
+
+
+.search_area {
+    margin:1rem;
+}
+.sitelink_area {
+    margin:0.5rem;
+    
+}
+.sitelink {
+    font-size:1.5rem;
+
+}
+.url {
+    font-size:0.8rem;
+    color:dimgray;
+}
+.caution {
+    text-size:0.8rem;
+    font-weight:bold;
+    color:crimson;
+}
+
+
+table {
+
+    width:100%;
+    margin:1rem 0;
+}
+thead td {
+    text-align:center;
+    font-weight:bold;
+}
+table td {
+    border:solid 0.2rem forestgreen;
+    padding:0.5rem;
+}
+.searched_word {
+    text-align:center;
+    
+}
+
+.searched_dt {
+    text-align:right;
+    
+}
+.trash {
+    text-align:center;
+}
+.trash label {
+    position:relative;
+
+}
+.trash i {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    font-weight:1.25rem;
+    color:dimgray;
+    cursor:pointer;
+}
+
+

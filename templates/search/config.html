@@ -1,0 +1,114 @@
+{% extends "search/base.html" %}
+
+
+<!--設定画面ではフォームは非表示-->
+{% block form %}
+{% endblock %}
+
+
+<!--ここに設定画面の現状を報告。書き換えができるようにする-->
+{% block main %}
+
+<section>
+    <h2>検索履歴</h2>
+
+    <!--ここに一覧表示-->
+    <table>
+        <thead>
+            <tr>
+                <td>検索した単語</td>
+                <td>検索した時刻</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in history_data %}
+            <tr>
+                <td class="searched_word"><a href="{% url 'search:index' %}?search_word={{ content.search_word }}">{{ content.search_word }}</a></td>
+                <td class="searched_dt">{{ content.search_dt }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</section>
+<section>
+    <h2>非表示検索設定</h2>
+
+    <p>検索結果から不適切なサイトを非表示にしたい時に設定します</p>
+
+    <h3>非表示URLリスト</h3>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input class="form-control my-1" type="text" name="ban_url" maxlength="">
+        <input class="form-control my-1" type="submit" value="送信">
+    </form>
+
+    <!--ここに一覧表示-->
+    <table>
+        <thead>
+            <tr>
+                <td>非表示対象のURL</td>
+                <td>削除</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in banurl_data %}
+            <tr>
+                <td>{{ content.ban_url }}</td>
+                <td class="trash">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="ban_url_delete" value="{{ content.id }}">
+                        <input id="url_delete_{{ content.id }}" type="submit" style="display:none;">
+                        <label for="url_delete_{{ content.id }}"><i class="fas fa-trash-alt"></i></label>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h3>非表示タイトルリスト</h3>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input class="form-control my-1" type="text" name="ban_title" maxlength="">
+        <input class="form-control my-1" type="submit" value="送信">
+    </form>
+
+    <!--ここに一覧表示-->
+    <table>
+        <thead>
+            <tr>
+                <td>非表示対象のタイトル</td>
+                <td>削除</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in bantitle_data %}
+            <tr>
+                <td>{{ content.ban_title }}</td>
+                <td class="trash">
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="ban_title_delete" value="{{ content.id }}">
+                        <input id="title_delete_{{ content.id }}" type="submit" style="display:none;">
+                        <label for="title_delete_{{ content.id }}"><i class="fas fa-trash-alt"></i></label>
+                    </form>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</section>
+
+
+
+{% endblock %}
+
+
