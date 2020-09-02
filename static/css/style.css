@@ -115,7 +115,6 @@ table td {
     left:50%;
     transform:translate(-50%,-50%);
 
-    font-weight:1.25rem;
     color:dimgray;
     cursor:pointer;
 }
